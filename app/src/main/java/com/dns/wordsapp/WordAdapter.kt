@@ -53,6 +53,10 @@ class WordAdapter(private val letterId: String, context: Context) :
         holder.button.text = item
 
         holder.button.setOnClickListener {
+
+            /* deklarasi variable queryUrl untuk search query dengan memanggil variabel
+            SEARCH_PREFIX sebagai fungsi google search untuk setiap word
+             */
             val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
 
             val intent = Intent(Intent.ACTION_VIEW, queryUrl)

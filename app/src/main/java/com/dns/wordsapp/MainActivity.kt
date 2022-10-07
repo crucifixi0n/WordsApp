@@ -1,6 +1,5 @@
 package com.dns.wordsapp
 
-import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,12 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dns.wordsapp.databinding.ActivityMainBinding
 
-//class Main Activity untuk menampilkan RecyclerView dari huruf-huruf
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
 
+    //membuat LinearLayoutManager sebagai default Layout aplikasi
     private var isLinearLayoutManager = true
 
+    //function untuk memberikan pilihan layout dalam grid view atau list view
     private fun chooseLayout() {
         if (isLinearLayoutManager) {
             recyclerView.layoutManager = LinearLayoutManager(this)
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = LetterAdapter()
     }
 
+    //memberikan icon drawable untuk masing-masing view (grid dan list)
     private fun setIcon(menuItem: MenuItem?) {
         if (menuItem == null)
             return
@@ -47,6 +48,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    //function untuk merubah layout view saat tombol view dipilih
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_switch_layout -> {
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = binding.recyclerView
 
+        //memanggil method chooseLayout() dari function onOptionsItemSelected
         chooseLayout()
     }
 }

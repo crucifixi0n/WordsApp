@@ -1,6 +1,5 @@
 package com.dns.wordsapp
 
-
 import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +33,13 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
         val item = list.get(position)
         holder.button.text = item.toString()
+
+        //membuat intent untuk menampilkan list words
         holder.button.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetailActivity::class.java)
 
+            //memanggil variable LETTER dari DetailActivity
             intent.putExtra(DetailActivity.LETTER, holder.button.text.toString())
 
             context.startActivity(intent)

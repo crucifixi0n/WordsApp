@@ -10,16 +10,22 @@ import com.dns.wordsapp.databinding.ActivityDetailBinding
 class DetailActivity : AppCompatActivity() {
 
     companion object {
+
+        //deklarasi constant variable LETTER
         const val LETTER = "letter"
+
+        //deklarasi constant variable SEARCH_PREFIX untuk google search dari setiap word
         const val SEARCH_PREFIX = "https://www.google.com/search?q="
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //
         val binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        /*deklarasi constant variable letterId dengan memanggil variable
+        LETTER untuk menampilkan list words dari setiap masing-masih huruf
+         */
         val letterId = intent?.extras?.getString(LETTER).toString()
 
         val recyclerView = binding.recyclerView
