@@ -21,9 +21,10 @@ class WordAdapter(private val letterId: String, context: Context) :
         val words = context.resources.getStringArray(R.array.words).toList()
 
         filteredWords = words
-            //
+            // mengembalikan nilai item jika kondisi klausal = true
+            // mengabaikan UPPERCASE atau lowercase
             .filter { it.startsWith(letterId, ignoreCase = true) }
-            //
+            // mengembalikan nilai yang telah diacak
             .shuffled()
             //mengembalikan 5 nilai n pertama sebagai [List]
             .take(5)
@@ -37,6 +38,7 @@ class WordAdapter(private val letterId: String, context: Context) :
 
     override fun getItemCount(): Int = filteredWords.size
 
+    //membuat views dengan R.layout.item_view sebagai template
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val layout = LayoutInflater
             .from(parent.context)

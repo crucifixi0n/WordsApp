@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 //Class LetterAdapter untuk RecyclerView pada MainActivity
 class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
 
+    //generate CharRange dari A-Z dan mengubahnya dalam bentuk list
     private val list = ('A').rangeTo('Z').toList()
 
     class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -21,6 +22,7 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
         return list.size
     }
 
+    //membuat views dengan R.layout.item_view sebagai template
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
         val layout = LayoutInflater
             .from(parent.context)

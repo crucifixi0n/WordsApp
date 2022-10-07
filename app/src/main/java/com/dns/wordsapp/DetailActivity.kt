@@ -32,6 +32,7 @@ class DetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = WordAdapter(letterId, this)
 
+        //menambahkan DividerItemDecoration untuk setiap item huruf dan words
         recyclerView.addItemDecoration(
             DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         )
